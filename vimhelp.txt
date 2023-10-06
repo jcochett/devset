@@ -1,0 +1,307 @@
+Space-H
+{{{ -- Space H -------------------------  --------------------------------------
+<SPACE> h   Space H(elp) Menu             # <SPACE> c   Comment # line(s)
+<SPACE> f   Fold/Unfold                   <SPACE> s     Next spelling mistake
+<SPACE> w   Cycle window splits           <SPACE> z     Correct spelling
+<SPACE> g   Cycle tabs                    <SPACE> o     Open new tab
+<SPACE> t   Toggle recent tabs
+
+<SPACE> S   Toggle spellcheck
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Tabs ----------------------------  --------------------------------------
+vim -p [file] [file]    Open in tabs
+
+gt             Next tab                   gT          Previous tab
+:tabe [file]   Open file in new tab       tab sb #    Open buffer # into new tab
+:tabs          List tabs                  :tabc       Close current tab
+:tabr          Goto first tab             :tabl       Goto last tab
+# gt           Goto tab #                 :tabm #     Move tab to #
+xa             Save/quit all tabs         qa!         Quit all tabs, no save
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Function Keys -------------------  --------------------------------------
+F2   Help menu                            F5          Run python3
+F3   Toggle line numbers                  Shift F5    Run pylint
+F4   Toggle syntax                        Ctrl F5     Run pycodestyle
+F6   Toggle comment                       Ctrl F10    ASCII to Hex
+F7   Toggle viewing whitespace            Shift F10   Hex to ASCII
+F8   Toggle relative numbering            F9          Retag ctags
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Window Splits -------------------  --------------------------------------
+vim -o [file] [file]   Open/split vert    vim -O [file] [file]   Open/split horz
+
+:sb1         Open buffer 1 horz window    :sp [file]   Open horizontal file
+:vert sb1    Open buffer 1 vert window    :vsp [file]  Open vertical file
+<C-w> jkhl   Move between splits          <C-w> =      Make splits equal
+<C-w> w      Move to next window          <C-w> p      Move to previous window
+<C-w> q      Close active split           <C-w> o      Close all but this split
+<C-w> <      Resize left width by 1       <C-w> +      Increase height by 1
+<C-w> >      Resize right width by 1      <C-w> -      Decrease height by 1
+#<C-w> <     Resize left width by #       <C-w> r      Rotate through windows
+<C-w> T      Convert window to tab
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Spelling ------------------------  --------------------------------------
+:set spell     Highlight spelling         :set nospell   No highlight spelling
+z=             Suggest corrections        ]s             Next misspelling
+zg             Add to dictionary          [s             Prev misspelling
+zw             Remove from dictionary
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Quickfix List -------------------  --------------------------------------
+:grep /searchterm/ *                      :make
+
+:cw     Open list                         :cfir   First item
+:ccl    Close list (cclose)               :cla    Last item
+:cn     Next item                         :cnew   Next quickfix list
+:cp     Previous item                     :col    Previous quickfix list
+:cc #   Go to # item
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Location List -------------------  --------------------------------------
+:lop   Open list                          :lfir  First list item
+:lcl   Close list                         :llas  Last list last
+:lne   Next item                          :lol   Previous location list
+:lpre  Previous item                      :lnew  Next location list
+:ll #  Goto # item
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Buffers -------------------------  --------------------------------------
+:e [file]   Open file                     :n [file] [file]   Open files
+:ls         List buffers (open files)     :bn                Next buffer
+:b1         Switch to buffer one          :bp                Next buffer
+:bd         Close current buffer (file)   :e .        File browser
+:bd!        Close buffer don't save
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Sessions ------------------------  --------------------------------------
+vim -S        Open default session
+
+:mks          Make session (Session.vim)  :mks [file]  Make session named 'file'
+:mks!         Save modified session       :so [file]   Restore session 'file'
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Registers -----------------------  --------------------------------------
+:reg     List all registers and macros    "ayy    Yank line into register 'a'
+:reg a   Show contents of register 'a'    "a3yy   Yank 3 lines into register 'a'
+"ap      Paste contents of register 'a'   "Ayy    Append line into register 'a'
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Folds ---------------------------  --------------------------------------
+zo    Open fold                           zc    Close fold
+zm    Fold more                           zR    Unfold all
+zr    Fold less                           zM    Fold all
+zj    Next fold                           [z    Top of fold
+zk    Previous fold                       ]z    Bottom of fold
+za    Toggle fold
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- ------- -------------------------  --------------------------------------
+
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- File Exporer ---------------------------------------
+vim [path]             Open explorer (i.e. vim .)
+:E                     Open explorer
+:Sex                   Open explorer split horizontal
+:Vex                   Open explorer split vertical
+:Tex                   Open explorer in new tab
+---------------------------------------------------------}}}
+
+{{{ -- Undo & Redo ---------------------------------------
+u                      Undo previous action
+#u                     Undo # times
+:u #                   Jump to change #
+U                      Undo all latest changes on one line
+<C-r>                  Redo
+:changes               List of recent changes
+:undolist              Branches of change
+g+                     Earlier (forward through undo tree)
+g-                     Later (backward through undo tree)
+:ea [time][unit]       Jump earlier change 1m (1 minute)
+:ea 1m                 Jump 1 minute earlier
+:ea 1f                 Jump the last write to file
+:lat [time][unit]      Jump later change 1h (1 hour)
+---------------------------------------------------------}}}
+
+
+{{{ -- SectionName ---------------------------------------
+---------------------------------------------------------}}}
+
+{{{ -- ------- -------------------------  --------------------------------------
+----------------------------------------  -----------------------------------}}}
+{{{ -- ------- -------------------------  --------------------------------------
+----------------------------------------  -----------------------------------}}}
+{{{ -- ------- -------------------------  --------------------------------------
+----------------------------------------  -----------------------------------}}}
+{{{ -- ------- -------------------------  --------------------------------------
+----------------------------------------  -----------------------------------}}}
+{{{ -- ------- -------------------------  --------------------------------------
+----------------------------------------  -----------------------------------}}}
+{{{ -- ------- -------------------------  --------------------------------------
+----------------------------------------  -----------------------------------}}}
+{{{ -- ------- -------------------------  --------------------------------------
+----------------------------------------  -----------------------------------}}}
+
+{{{ -- Text Manipulation -----------------------------------
+gI                     Insert at real beginning
+<C-a>                  Add 1
+10<C-a>                Add 10
+<C-x>                  Subtract 1
+ci"                    Change inside quotes
+yi'                    Yank inside single quotes
+da"                    Delete all and the quotes
+guiw                   Lowercase word
+gUiw                   Uppercase word
+:sort                  Sort all lines
+:4,8 sort              Sort lines 4-8
+---------------------------------------------------------}}}
+
+{{{ -- Cursor Movement -------------------------------------
+f[char]                Find [char] on line (forward)
+F[char]                Find [char] on line (reverse)
+t[char]                Find char before [char] (forward)
+T[char]                Find char after [char] (reverse)
+;                      Next find
+,                      Prev find
+m[char]                Mark point as [char]
+'[char]                Return to point [char]
+'^                     Return to last insert point
+)                      Next sentence
+(                      Prev sentence
+}                      Next paragraph
+{                      Prev paragraph
+gj                     Move down 1 actual line
+gk                     Move up 1 actual line
+<C-u>                  Page up
+<C-d>                  Page down
+---------------------------------------------------------}}}
+
+{{{ -- Jumps and Marks -----------------------------------
+:jumps                 List jumps
+g;                     Jump to next change
+g,                     Jump to prev change
+gi                     Jump to last insertion and insert
+<C-o>                  Jump to older cursor position
+<C-i>                  Jump to newer cursor position
+
+:marks                 List current marks
+ma                     Mark line as 'a'
+'a                     Jump to 'a' line
+''                     Jump to prev line before jump
+'.                     Jump to last insertion
+---------------------------------------------------------}}}
+
+{{{ -- Visual Mode ---------------------------------------
+<C-v>                  Visual mode block selection
+V                      Visual mode line selection
+g<C-a>                 Increment numbers on selected lines
+---------------------------------------------------------}}}
+
+{{{ -- Autocompletion ------------------------------------
+:h ins-completion
+<C-n>                  Autocomplete, select next
+<C-p>                  Autocomplete, select prev
+<C-y>                  Accept selection
+<C-e>                  Exit autocomplete
+<C-x><C-f>             Filename autocompletion
+<C-x><C-i>             Autocomplete using 'set path'
+<C-x><C-]>             Tags
+<C-x><C-d>             Include/import files
+
+<C-x><C-k>             Dictionary, needs 'set dictionary'
+set dictionary+=/usr/share/dict/words
+
+<C-x><C-]>             Omni completion (uses tags)
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+:[letter]<C-d>         Ex command autocompletion
+---------------------------------------------------------}}}
+{{{ -- Programming ---------------------------------------
+ga                     Print ascii value
+gd                     Jump to definition (local)
+<C-t>                  List tabs from previous jumps
+K                      Open manpage at current cursor
+:.,+5 s/^/#/           Comment (#) the next 5 lines
+---------------------------------------------------------}}}
+
+{{{ -- Ctags ---------------------------------------------
+ctags -R               Full index
+ctags -R *.py          Index python files
+tags=./tags,tags       Search current dir (.vimrc)
+:!ctags -R<CR>         Retag
+
+<C-]>                  Jump to definition (ctags)
+---------------------------------------------------------}}}
+
+{{{ -- History & Searching -------------------------------
+/                      Search forward
+?                      Search backward
+*                      Search next word under cursor
+#                      Search prev word under cursor
+q/                     View Search history
+q?                     View Reverse history
+q:                     View Command history
+:set history=1000      Set history size
+@:                     Repeat last command
+---------------------------------------------------------}}}
+
+{{{ -- Not Sure What -------------------------------------
+<C-r>=4*5              Insert mode math
+:!expr 8 \* 8          Math (multiply example)
+vim -u NONE [file]     Ignores .vimrc (allows tab usage)
+vim -b [file]          Open w/o adding newline at eof
+:set noeol             Do not add newline at eof
+:w !sudo tee %         Save a file w/o permission
+:X                     Save and encrypt file
+:set nofixendofline    No trailing newline at file end
+:sh                    Drop to shell
+:g/[pattern]           Global find
+gf                     Open file under cursor
+gx                     Open url under cursor
+<C-c>                  Toggle to Normal mode from Insert
+---------------------------------------------------------}}}
+
+## General ########
+:.!cmd   dump
+:f name  save-as
+:retab   del tabs
+z.       focus
+*	     search
+'.       Jump back
+ga       ascii/hex
+gd       goto def
+K        manpage
+
+
+## Splits #########
+10sp     open
+vsp      open
+Vex      open
+C-w r    switch
+C-w |    max
+C-w =    return
+C-w hjkl move
+
+
+## Macros #########
+q<char><cmds>q
+@<char>
+
+
+## Autocomplete ###
+<C-x><C-f>  File
+<C-x><C-d>  Include
+<C-x><C-k>  Dict
+
+## Registers ######
+:reg   List
+"%     File name
+"ayy   Yank line
+"a3yy  Yank 3 lines
+"Ayy   Append line
+"ap    Paste
+

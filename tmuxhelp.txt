@@ -1,0 +1,66 @@
+# Sessions
+
+# Session setup
+# ---------------------------------------------------
+# In .bashrc add these lines
+alias tmux="TERM=screen-256color-bce tmux"
+export TERM="xterm-256color"
+# Then source .bashrc
+source $HOME/.bashrc
+# ---------------------------------------------------
+`
+# New named session
+tmux new -s dev
+# Detach session
+<C-b> d
+
+# Attach
+tmux a #
+
+# Attach to session by name
+tmux a -t dev
+
+# List sessions
+tmux ls
+
+# Set session keys to vi
+tmux set-option status-keys vi
+
+# Push the configuration to sessions
+tmux source-file ~/.tmux.conf
+
+# Bind <C-f> to toggle last window
+tmux bind-key -n C-f last-window
+
+# Turn off sound
+set -g bell-action none
+
+# Windows
+<C-b> c           Create window
+<C-b> w           List
+<C-b> n           Next
+<C-b> ,           Rename window
+<C-b> l           Toggle last
+<C-b> &           Kill window
+
+# Panes
+<C-b> %           Vertical split
+<C-b> "           Horizontal split
+<C-b> o           Cycle panes
+<C-b> q           Show pane number
+<C-b> x           Kill pane
+<C-b> Space       Change layout
+
+
+# Copy
+<C-b> [           Enter copy mode
+<C-b> [           Paste
+
+  Search backward   ?
+  Search forward    /
+  Search next       n
+  Goto line         :
+  Start selection   Space
+  Exit/Copy         Enter
+
+

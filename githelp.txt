@@ -1,0 +1,40 @@
+# Git Help
+
+# New branching
+git checkout -b PROJECT-XX
+git push --set-upstream origin PROJECT-XX
+git push
+
+# Merge dev into branch
+git checkout development
+git pull
+git checkout your_branch
+git pull
+git merge
+
+# Revert a file
+
+# Revert branch
+git checkout .
+
+# Amend a git commit
+git commit --amend
+
+# Show changes from a branch you are on
+git diff theOtherBranch
+
+# Visuall see the summary of changes with --stat
+git log --stat
+
+# Show commit messages from a single branch named 'branchName'
+git log dev..branchName
+
+# Show commit summary from single branch
+git cherry -v dev branchName
+
+# Removed untracked files w/ force
+git clean -f
+
+# Show which untracked files would be removed
+git clean -n
+

@@ -1,0 +1,59 @@
+GIT NOTES
+
+###############################################################################
+# Store Username & Passwords
+###############################################################################
+
+-------------------------------------------------------------------------------
+# Store username/password forever on this repo
+-------------------------------------------------------------------------------
+
+git config credential.helper store
+
+-------------------------------------------------------------------------------
+# Store them time based - stores for 60 minutes
+-------------------------------------------------------------------------------
+
+git config credential.helper 'cache --timeout=3600'
+
+-------------------------------------------------------------------------------
+# Setup creds
+-------------------------------------------------------------------------------
+git config --global user.email "jcochett@gmail.com"
+git config --global user.name "jcoke"
+
+-------------------------------------------------------------------------------
+# Removing "Server certificate verification failed."
+-------------------------------------------------------------------------------
+git config --global http.sslverify false
+
+
+###############################################################################
+# Git Branch in BASH Prompt
+###############################################################################
+
+-------------------------------------------------------------------------------
+# Paste at end of .bashrc file
+-------------------------------------------------------------------------------
+
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+
+###############################################################################
+# Git Commits use Vim
+###############################################################################
+
+git config --global core.editor "vim"
+
+
+###############################################################################
+# Git .gitconfig
+###############################################################################
+
+[alias]
+    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+    st = status
