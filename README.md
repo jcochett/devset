@@ -10,10 +10,11 @@
 ```
 
 
-Folder/File Contents
 
-File
--------------------------------------------------------------
+
+## Folder/File Contents
+
+```
 .vimrc                   Vim resource configuration file
 vimhelp.txt              F2 or Space-H - Vim command help
 
@@ -21,5 +22,5 @@ colors/gruvbox.vim       Color scheme
 compilers/pylint.vim     Pylint quickfix list
 extras/chartab.vim       ASCII chart popup
 extras/supertab.tar.gz   Supertab plugin for autocomplete
-
+```
 
