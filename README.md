@@ -1,2 +1,2 @@
 # devset
-Personal development setup
+Development Setup
