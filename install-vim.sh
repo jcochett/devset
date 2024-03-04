@@ -2,9 +2,9 @@ mkdir -p ~/.vim/colors/ ~/.vim/compiler ~/.vim/plugin
 echo "Copying .vimrc"
 cp .vimrc      ~/.vimrc
 echo "Copying vimcmd.txt reference"
-cp vimcmds.txt ~/.vim
+cp vimcmds.txt ~/.vim/vimcmds.txt
 echo "Copying vimhelp.txt for F2 help"
-cp vimhelp.txt ~/.vim
+cp vimhelp.txt ~/.vim/vimhelp.txt
 echo "Copying gruvbox to .vim/colors for colorscheme"
 cp extras/gruvbox.vim ~/.vim/colors
 echo "Copying pylint.vim to .vim/compiler for pylint in Quickfix lists"
