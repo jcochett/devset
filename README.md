@@ -1,5 +1,7 @@
 # DevSet
 
+jcochett devset
+
 ```
      .___                           __
    __| _/_______  __   ______ _____/  |_ __ ________
@@ -9,7 +11,9 @@
       \/    \/            \/     \/           |__|
 ```
 
+## Description
 
+Developer Setup notes and files
 
 
 ## Folder/File Contents
