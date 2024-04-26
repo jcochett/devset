@@ -1,6 +1,6 @@
 # DevSet
 
-jcochett devset
+github jcochett devset
 
 ```
      .___                           __
