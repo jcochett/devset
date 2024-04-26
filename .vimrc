@@ -232,7 +232,9 @@ map <F6> :call CommentToggle()<CR>
 
 
 " F7: View whitespace
-nnoremap <F7> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+"nnoremap <F7> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+" F7: C Compile
+map <F7> <Esc>:w<CR>: !clear;gcc %;./a.out<CR>
 
 
 " F8: Numbering

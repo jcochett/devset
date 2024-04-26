@@ -4,7 +4,7 @@ Space-H
 <SPACE> f   Fold/Unfold                   <SPACE> s     Next spelling mistake
 <SPACE> w   Cycle window splits           <SPACE> z     Correct spelling
 <SPACE> g   Cycle tabs                    <SPACE> o     Open new tab
-<SPACE> t   Toggle recent tabs
+<SPACE> t   Toggle recent tabs            <SPACE> ct    ASCII chart popup
 
 <SPACE> S   Toggle spellcheck
 ----------------------------------------  -----------------------------------}}}
@@ -52,7 +52,8 @@ zw             Remove from dictionary
 ----------------------------------------  -----------------------------------}}}
 
 {{{ -- Quickfix List -------------------  --------------------------------------
-:grep /searchterm/ *                      :make
+:grep searchterm *      Search curr dir   :make
+:vim searchterm **/*    Recursive search
 
 :cw     Open list                         :cfir   First item
 :ccl    Close list (cclose)               :cla    Last item
