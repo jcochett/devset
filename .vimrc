@@ -239,6 +239,8 @@ map <F7> <Esc>:w<CR>: !clear;gcc %;./a.out<CR>
 
 " F8: Numbering
 nmap <F8> :set nornu!<CR>
+" Shift F8: Prep git commit message
+map <C-F8> gg4ddj2ddk3dwA:
 
 
 " F9: Retag
@@ -258,3 +260,4 @@ map <S-F10> :%!xxd -r <CR>
 " F12: Update vimrc file
 :map <F12> :source ~/.vimrc <CR>
 
+" command! RunMacroA normal!  gg4dd3dwA:€ýajddddxggA q€kb€ýa
