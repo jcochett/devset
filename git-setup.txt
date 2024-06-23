@@ -29,6 +29,35 @@ git config --global http.sslverify false
 
 
 ###############################################################################
+# Fancy Git Branch in BASH Prompt
+###############################################################################
+
+-------------------------------------------------------------------------------
+# Paste at end of .bashrc file
+-------------------------------------------------------------------------------
+
+# Define colors
+RED='\e[31m'
+GREEN='\e[32m'
+YELLOW='\e[33m'
+BLUE='\e[34m'
+MAGENTA='\e[35m'
+CYAN='\e[36m'
+WHITE='\e[37m'
+PERIWINKLE='\e[38;5;153m'
+SLATE_BLUE='\e[38;5;62m'
+LIME_GREEN='\e[38;5;154m'
+RESET='\e[0m'
+
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1="${CYAN}\u@\h${RESET} ${PERIWINKLE}\w${RESET} ${LIME_GREEN}\$(parse_git_branch)${RESET}$ "
+
+
+
+
+###############################################################################
 # Git Branch in BASH Prompt
 ###############################################################################
 
