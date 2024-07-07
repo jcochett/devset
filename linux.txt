@@ -1,0 +1,2 @@
+# Set up sudo
+<username> ALL=(ALL) NOPASSWD: ALL
