@@ -22,10 +22,10 @@ SKY_BLUE='\e[96m'
 RESET='\e[0m'
 
 # Blue Prompt
-# export PS1="[${SKY_BLUE}\u@\h${RESET}] ${CYAN}\w ${BLUE_BACK}\$(parse_git_branch)${RESET}$ "
+# export PS1="\[[${SKY_BLUE}\u@\h${RESET}] ${CYAN}\w ${BLUE_BACK}\$(parse_git_branch)${RESET}\]$ "
 
 # Green Prompt
-export PS1="[${LIME_GREEN}${DARK_GREY}\u@\h${RESET}] ${SUNNY}\w ${SEAGREEN}\$(parse_git_branch)${RESET}$ "
+export PS1="\[[${LIME_GREEN}${DARK_GREY}\u@\h${RESET}] ${SUNNY}\w ${SEAGREEN}\$(parse_git_branch)${RESET}\]$ "
 
 # Aliases
 alias tmux="TERM=screen-256color-bce tmux"
