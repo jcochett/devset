@@ -16,11 +16,16 @@ SUNNY='\e[38;5;108m'
 SEAGREEN='\e[38;5;231m'
 LIME_GREEN='\e[38;5;154m'    # Lime green foreground
 DARK_GREY='\e[48;5;238m'     # Dark grey background
+LIGHT_BLUE='\e[94m'
+BLUE_BACK='\e[44m\e[97m'
+SKY_BLUE='\e[96m'
 RESET='\e[0m'
 
-# Command Prompt
+# Blue Prompt
+# export PS1="[${SKY_BLUE}\u@\h${RESET}] ${CYAN}\w ${BLUE_BACK}\$(parse_git_branch)${RESET}$ "
+
+# Green Prompt
 export PS1="[${LIME_GREEN}${DARK_GREY}\u@\h${RESET}] ${SUNNY}\w ${SEAGREEN}\$(parse_git_branch)${RESET}$ "
-#export PS1="\[\e[1;91m\]\u@\h \[\e[1;33m\]\w \[\e[36m\]\$(parse_git_branch)\[\e[00m\]$ "
 
 # Aliases
 alias tmux="TERM=screen-256color-bce tmux"
