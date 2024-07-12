@@ -8,7 +8,7 @@ export TERM="xterm-256color"
 # Then source .bashrc
 source $HOME/.bashrc
 # ---------------------------------------------------
-`
+
 # New named session
 tmux new -s dev
 # Detach session
