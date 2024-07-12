@@ -26,5 +26,10 @@ extras/gruvbox.vim       Color scheme
 extras/pylint.vim        Pylint quickfix list
 extras/chartab.vim       ASCII chart popup
 extras/supertab.tar.gz   Supertab plugin for autocomplete
+
+
+linux.txt                Linux setup and commands
+virtualbox.txt           Virtualbox information
+
 ```
 

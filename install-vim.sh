@@ -1,8 +1,9 @@
+echo "DevSet Installing"
 mkdir -p ~/.vim/colors/ ~/.vim/compiler ~/.vim/plugin
 echo "Copying .vimrc"
 cp .vimrc      ~/.vimrc
 echo "Copying vimcmd.txt reference"
-cp vimcmds.txt ~/.vim/vimcmds.txt
+cp vim-mem.txt ~/.vim/vim-mem.txt
 echo "Copying vimhelp.txt for F2 help"
 cp vimhelp.txt ~/.vim/vimhelp.txt
 echo "Copying gruvbox to .vim/colors for colorscheme"

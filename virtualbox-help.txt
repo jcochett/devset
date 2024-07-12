@@ -1,0 +1,11 @@
+# Running virtual box headless (no windows)
+
+# On windows, add virtualbox directory to path
+- Example: C:\Program Files\Oracle\VirtualBox
+
+# In powershell check the virtual machines names & uuid
+VBoxManage list vms
+
+# Start the machine by using the name
+VBoxHeadless -s <Guest-OS-Name>
+
