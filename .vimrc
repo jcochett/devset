@@ -120,7 +120,7 @@ map <leader>g gt                                          " Previous tab
 map <leader>h :call ToggleFile("~/.vim/vimhelp.txt")<CR>  " Space Help Menu
 map <leader>i '.                                          " Return to last insert
 map <leader>m :call ToggleMem("~/.vim/vim-mem.txt")<CR>   " Vim memory
-map <leader>o :tabe                                       " Open file in tab
+map <leader>o :tabe
 map <leader>s ]s                                          " Next spelling error
 map <leader>S :set spell!<CR>                             " Spelling on/off
 map <leader>t g<TAB>                                      " Toggle tag
@@ -158,7 +158,7 @@ function! ToggleFile(filename)
     execute bufnr . 'bd'
   else
     execute 'vsp' fnameescape(a:filename)
-    execute 'set nu! rnu! foldcolumn=0'
+    execute 'set nonu nornu foldcolumn=0'
   endif
 endfunction
 
@@ -173,7 +173,7 @@ function! ToggleMem(filename)
     execute bufnr . 'bd'
   else
     execute 'leftabove 20vsp' fnameescape(a:filename)
-    execute 'set nu! rnu! foldcolumn=0'
+    execute 'set nonu nornu foldcolumn=0'
   endif
 endfunction
 
