@@ -1,302 +1,37 @@
-Vim Commands
+-----Vim Memory-----
+<leader>m   vim-mem
+<leader>p   paste
+<leader>ct  ascii
+--------------------
+:cp    Previous item
+;      Next find
+,      Prev find
+'^     Jump 2 insert
+ga     Print ascii
+gd     Jump to def
+zg     Add to dict
+zw     Del from dict
+:cn    QL Next item
+ci"    Change in "
+yi'    Yank ini '
+da"    Delete all "
+guiw   Lowercase
+gUiw   Uppercase
+"a3yy  Yank 3 in 'a'
+"ap    Paste 'a'
+--------------------
+:tabs     List tabs
+:tabr     First tab
+:tabl     Last tab
+:mkview   Save folds
+:ldview   Load folds
+:ea 1m    Time undo
+--------------------
+<C-f>     Complete
+--------------------
+:set noeol   No \n
+:w !sudo tee %
 
 
-{{{ -- Custom Settings -----------------------------------
-<SPACE>                Leader key
-<leader>s              Next spelling error
-<leader>z              Correct spelling
-<leader>p              Paste
-<leader>t              Toggle between tabs
-<leader>g              Previous tab
-<leader>ct             ASCII chart popup
 
-5<F6>                  Toggle comment/uncomment 5 lines
-F7                     View whitespace
-F9                     Pylint Quicklist
-F10                    Hex
-
-<C-f>                  Autocomplete filename <C-x><C-f>
-<C-o>                  Autocomplete omni <C-x><C-o>
----------------------------------------------------------}}}
-
-{{{ -- Tabs ------------------------------------------------
-vim -p [file] [file]   Open files into tabs
-:tabs                  List tabs
-:tabe [file]           Open file in new tab
-:tabc                  Close current tab
-:tabr                  Goto first tab
-:tabl                  Goto last tab
-gt                     Next tab
-gT                     Previous tab
-g<Tab>                 Toggle tabs
-#gt                    Jump to tab number # (i.e. 3gt)
-tab sb #               Open buffer # into new tab
-:tabm                  Move tab to last position
-:tabm #                Move tab to position #
----------------------------------------------------------}}}
-
-{{{ -- Windows ---------------------------------------------
-:sb1                   Horizontal Split with buffer one
-:vert sb1              Vertical split buffer one
-:sp <file>             Open horizontal file
-:vsp <file>            Open vertical file
-<C-w> <C-w>            Alt-tab between splits
-<C-w> jkhl             Move between splits
-<C-w> r                Rotate splits
-<C-w> =                Make splits equal
-<C-w> -                Reduce by one line
-<C-w> +                Increase by one line
-<C-w> q                Close active split
-<C-w> o                Close all but active split
-<C-w> <                Resize tab's left width by 1
-#<C-w> <               Resize tab's left width by #
-<C-w> >                Resize tab's right width by 1
-<C-w> +                Resize tab's height increase by 1
-<C-w> -                Resize tab's height decrease by 1
----------------------------------------------------------}}}
-
-{{{ -- Folds -----------------------------------------------
-:set foldmethod=marker
-za                     Toggle fold
-zo                     Open fold
-zc                     Close fold
-zm                     Fold more
-zr                     Fold less
-zR                     Fold all
-zM                     Unfold all
-zj                     Next fold
-zk                     Previous fold
-[z                     Top of fold
-]z                     Bottom of fold
-
-:mkview                Save folds
-:loadview              Load folds
-
-:set foldmethod=indent Python folding
-:set foldnestmax=2     Python max folding
-:set foldmethod=syntax C folding
-:set foldcolumn=2      Column for folding visualization
-
-Override existing fold method
-autocmd FileType vim setlocal foldmethod=maker
----------------------------------------------------------}}}
-
-{{{ -- Text Manipulation -----------------------------------
-gI                     Insert at real beginning
-<C-a>                  Add 1
-10<C-a>                Add 10
-<C-x>                  Subtract 1
-ci"                    Change inside quotes
-yi'                    Yank inside single quotes
-da"                    Delete all and the quotes
-guiw                   Lowercase word
-gUiw                   Uppercase word
-:sort                  Sort all lines
-:4,8 sort              Sort lines 4-8
----------------------------------------------------------}}}
-
-{{{ -- Cursor Movement -------------------------------------
-f[char]                Find [char] on line (forward)
-F[char]                Find [char] on line (reverse)
-t[char]                Find char before [char] (forward)
-T[char]                Find char after [char] (reverse)
-;                      Next find
-,                      Prev find
-m[char]                Mark point as [char]
-'[char]                Return to point [char]
-'^                     Return to last insert point
-)                      Next sentence
-(                      Prev sentence
-}                      Next paragraph
-{                      Prev paragraph
-gj                     Move down 1 actual line
-gk                     Move up 1 actual line
-<C-u>                  Page up
-<C-d>                  Page down
----------------------------------------------------------}}}
-
-{{{ -- Spelling --------------------------------------------
-:set spell             Highlight spelling
-:set nospell           No highlight spelling
-z=                     Suggest corrections
-zg                     Add to dictionary
-zw                     Remove from dictionary
-]s                     Next misspelling
-[s                     Prev misspelling
----------------------------------------------------------}}}
-
-{{{ -- Vimgrep (quickfix list) ---------------------------
-:vim /word/ **/*.py    Recursive search for python files
----------------------------------------------------------}}}
-
-{{{ -- Quickfix List -------------------------------------
-:cw                    Open list
-:cope                  Open list (copen)
-:ccl                   Close list (cclose)
-:cn                    Next item
-:cp                    Previous item
-:cfir                  First item
-:cla                   Last item
-:cc <n>                Go to n item
-:cnew                  Next quickfix list
-:col                   Previous quickfix list
----------------------------------------------------------}}}
-
-{{{ -- Jumps and Marks -----------------------------------
-:jumps                 List jumps
-g;                     Jump to next change
-g,                     Jump to prev change
-gi                     Jump to last insertion and insert
-<C-o>                  Jump to older cursor position
-<C-i>                  Jump to newer cursor position
-
-:marks                 List current marks
-ma                     Mark line as 'a'
-'a                     Jump to 'a' line
-''                     Jump to prev line before jump
-'.                     Jump to last insertion
----------------------------------------------------------}}}
-
-{{{ -- Visual Mode ---------------------------------------
-<C-v>                  Visual mode block selection
-V                      Visual mode line selection
-g<C-a>                 Increment numbers on selected lines
----------------------------------------------------------}}}
-
-{{{ -- Autocompletion ------------------------------------
-:h ins-completion
-<C-n>                  Autocomplete, select next
-<C-p>                  Autocomplete, select prev
-<C-y>                  Accept selection
-<C-e>                  Exit autocomplete
-<C-x><C-f>             Filename autocompletion
-<C-x><C-i>             Autocomplete using 'set path'
-<C-x><C-]>             Tags
-<C-x><C-d>             Include/import files
-
-<C-x><C-k>             Dictionary, needs 'set dictionary'
-set dictionary+=/usr/share/dict/words
-
-<C-x><C-]>             Omni completion (uses tags)
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-
-:[letter]<C-d>         Ex command autocompletion
----------------------------------------------------------}}}
-
-{{{ -- Registers -----------------------------------------
-:reg                   List all registers and macros
-:reg a                 Show contents of register 'a'
-"[0-9]                 Yank history registers 0-9
-"0                     Yank history registers most recent
-"%                     File name
-"ayy                   Yank line into register 'a'
-"a3yy                  Yank 3 lines into register 'a'
-"Ayy                   Append line into register 'a'
-"ap                    Paste contents of register 'a'
----------------------------------------------------------}}}
-
-{{{ -- Programming ---------------------------------------
-ga                     Print ascii value
-gd                     Jump to definition (local)
-<C-t>                  List tabs from previous jumps
-K                      Open manpage at current cursor
-:.,+5 s/^/#/           Comment (#) the next 5 lines
----------------------------------------------------------}}}
-
-{{{ -- Ctags ---------------------------------------------
-ctags -R               Full index
-ctags -R *.py          Index python files
-tags=./tags,tags       Search current dir (.vimrc)
-:!ctags -R<CR>         Retag
-
-<C-]>                  Jump to definition (ctags)
----------------------------------------------------------}}}
-
-{{{ -- History & Searching -------------------------------
-/                      Search forward
-?                      Search backward
-*                      Search next word under cursor
-#                      Search prev word under cursor
-q/                     View Search history
-q?                     View Reverse history
-q:                     View Command history
-:set history=1000      Set history size
-@:                     Repeat last command
----------------------------------------------------------}}}
-
-{{{ -- Not Sure What -------------------------------------
-<C-r>=4*5              Insert mode math
-:!expr 8 \* 8          Math (multiply example)
-vim -u NONE [file]     Ignores .vimrc (allows tab usage)
-vim -b [file]          Open w/o adding newline at eof
-:set noeol             Do not add newline at eof
-:w !sudo tee %         Save a file w/o permission
-:X                     Save and encrypt file
-:set nofixendofline    No trailing newline at file end
-:sh                    Drop to shell
-:g/[pattern]           Global find
-gf                     Open file under cursor
-gx                     Open url under cursor
-<C-c>                  Toggle to Normal mode from Insert
----------------------------------------------------------}}}
-
-{{{ -- Sessions --------------------------------------------
-vim -S                 Open default session
-:mks                   Make session (default Session.vim)
-:mks [file]            Make session with name 'file'
-:mks!                  Save modified session
-:so [file]             Restore session named 'file'
----------------------------------------------------------}}}
-
-{{{ -- Buffers ---------------------------------------------
-:e <file>              Open file
-:n <file> <file>       Open files
-:ls                    List buffers (open files)
-:b1                    Switch to buffer one
-:e .                   File browser
-:bn                    Next buffer
-:bp                    Next buffer
-:bd                    Close current buffer (file)
-:bd!                   Close buffer don't save
----------------------------------------------------------}}}
-
-{{{ -- File Exporer ---------------------------------------
-vim [path]             Open explorer (i.e. vim .)
-:E                     Open explorer
-:Sex                   Open explorer split horizontal
-:Vex                   Open explorer split vertical
-:Tex                   Open explorer in new tab
-
-[Enter]                Select highlighted dir or file
--                      Up to parent dir
-u                      Back to previous dir
-mb                     Make bookmark
-mB                     Remove most recent bookmark
-gb                     Jump to most recent bookmark
-P                      Open file preview
-<C-w>z                 Close file preview
-gh                     Toggle hidden files
-%                      Create file
----------------------------------------------------------}}}
-
-{{{ -- Undo & Redo ---------------------------------------
-u                      Undo previous action
-#u                     Undo # times
-:u #                   Jump to change #
-U                      Undo all latest changes on one line
-<C-r>                  Redo
-:changes               List of recent changes
-:undolist              Branches of change
-g+                     Earlier (forward through undo tree)
-g-                     Later (backward through undo tree)
-:ea [time][unit]       Jump earlier change 1m (1 minute)
-:ea 1m                 Jump 1 minute earlier
-:ea 1f                 Jump the last write to file
-:lat [time][unit]      Jump later change 1h (1 hour)
----------------------------------------------------------}}}
-
-
-{{{ -- SectionName ---------------------------------------
----------------------------------------------------------}}}
 
