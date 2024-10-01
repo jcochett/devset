@@ -114,20 +114,21 @@ augroup END
 " Leader key: <SPACE>
 nnoremap <SPACE> <Nop>
 let mapleader=" "
-map <leader>c :call CommentToggle()<CR>  " Toggle comments
-map <leader>f za                         " Toggle folding
-map <leader>g gt                         " Previous tab
+map <leader>c :call CommentToggle()<CR>                   " Toggle comments
+map <leader>f za                                          " Toggle folding
+map <leader>g gt                                          " Previous tab
 map <leader>h :call ToggleFile("~/.vim/vimhelp.txt")<CR>  " Space Help Menu
-map <leader>i '.                         " Return to last insert
-map <leader>j <C-]>                      " Ctag jump to definition
-map <leader>k <C-t>                      " Ctag return from definition
+map <leader>i '.                                          " Return to last insert
+map <leader>j <C-]>                                       " Ctag jump to definition
+map <leader>k <C-t>                                       " Ctag return from definition
+map <leader>m :call ToggleMem("~/.vim/vim-mem.txt")<CR>   " Vim memory
 map <leader>o :tabe
-map <leader>s ]s                         " Next spelling error
-map <leader>S :set spell!<CR>            " Spelling on/off
-map <leader>t g<TAB>                     " Toggle tag
-map <leader>z 1z=<CR>                    " Spell correct
-nnoremap <leader>n <C-^>                 " Toggle buffer
-nnoremap <leader>w <C-w><C-w>            " Cycle window splits
+map <leader>s ]s                                          " Next spelling error
+map <leader>S :set spell!<CR>                             " Spelling on/off
+map <leader>t g<TAB>                                      " Toggle tag
+map <leader>z 1z=<CR>                                     " Spell correct
+nnoremap <leader>n <C-^>                                  " Toggle buffer
+nnoremap <leader>w <C-w><C-w>                             " Cycle window splits
 " -------------------------------------------------------------------------
 
 
@@ -159,7 +160,22 @@ function! ToggleFile(filename)
     execute bufnr . 'bd'
   else
     execute 'vsp' fnameescape(a:filename)
-    execute 'set nu! rnu! foldcolumn=0'
+    execute 'set nonu nornu foldcolumn=0'
+  endif
+endfunction
+
+
+" -------------------------------------------------------------------------
+" Space H(elp) Help Menu
+" -------------------------------------------------------------------------
+function! ToggleMem(filename)
+  let bufnr = bufnr(a:filename)
+
+  if bufnr > 0 && buflisted(bufnr)
+    execute bufnr . 'bd'
+  else
+    execute 'leftabove 20vsp' fnameescape(a:filename)
+    execute 'set nonu nornu foldcolumn=0'
   endif
 endfunction
 
@@ -179,7 +195,7 @@ endfunction
 
 
 " -------------------------------------------------------------------------
-"  IDE
+" IDE
 " -------------------------------------------------------------------------
 " Support opening new windows to the right
 set splitright
@@ -199,6 +215,13 @@ inoremap <C-o> <C-x><C-o>
 " Search current dir (.vimrc)
 set tags=./tags,tags
 " -------------------------------------------------------------------------
+
+
+" -------------------------------------------------------------------------
+" Custom comands
+" -------------------------------------------------------------------------
+" Save session and exit all
+command! XX mks! | xa
 
 
 " -------------------------------------------------------------------------

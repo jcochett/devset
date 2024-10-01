@@ -1,0 +1,37 @@
+-----Vim Memory-----
+<leader>m   vim-mem
+<leader>p   paste
+<leader>ct  ascii
+--------------------
+:cp    Previous item
+;      Next find
+,      Prev find
+'^     Jump 2 insert
+ga     Print ascii
+gd     Jump to def
+zg     Add to dict
+zw     Del from dict
+:cn    QL Next item
+ci"    Change in "
+yi'    Yank ini '
+da"    Delete all "
+guiw   Lowercase
+gUiw   Uppercase
+"a3yy  Yank 3 in 'a'
+"ap    Paste 'a'
+--------------------
+:tabs     List tabs
+:tabr     First tab
+:tabl     Last tab
+:mkview   Save folds
+:ldview   Load folds
+:ea 1m    Time undo
+--------------------
+<C-f>     Complete
+--------------------
+:set noeol   No \n
+:w !sudo tee %
+
+
+
+
