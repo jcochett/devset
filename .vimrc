@@ -41,7 +41,7 @@ set hlsearch                   " Highlight search results
 set smartcase                  " Better searching
 set nu                         " Line numbering
 " Spelling highlight
-hi SpellBad cterm=underline ctermfg=white ctermbg=red
+hi SpellBad ctermfg=white ctermbg=lightmagenta guifg=white guibg=green
 " Allow c-x c-k autocomplete to dictionary
 set dictionary+=/usr/share/dict/words
 " -------------------------------------------------------------------------
@@ -119,6 +119,8 @@ map <leader>f za                         " Toggle folding
 map <leader>g gt                         " Previous tab
 map <leader>h :call ToggleFile("~/.vim/vimhelp.txt")<CR>  " Space Help Menu
 map <leader>i '.                         " Return to last insert
+map <leader>j <C-]>                      " Ctag jump to definition
+map <leader>k <C-t>                      " Ctag return from definition
 map <leader>o :tabe
 map <leader>s ]s                         " Next spelling error
 map <leader>S :set spell!<CR>            " Spelling on/off

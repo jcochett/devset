@@ -5,6 +5,8 @@ Space-H
 <SPACE> w   Cycle window splits           <SPACE> z     Correct spelling
 <SPACE> g   Cycle tabs                    <SPACE> o     Open new tab
 <SPACE> t   Toggle recent tabs            <SPACE> ct    ASCII chart popup
+<SPACE> j   Ctag jump to def              <SPACE> k     Ctag return from jump
+<SPACE> i   Jump to last insert
 
 <SPACE> S   Toggle spellcheck
 ----------------------------------------  -----------------------------------}}}
@@ -176,7 +178,12 @@ set omnifunc=syntaxcomplete#Complete
 tags=./tags,tags    Search current dir (.vimrc)
 
 ctags -R            Full index            ctags -R *.py      Index python files
-:!ctags -R<CR>      Retag                 <C-]>              Jump to definition
+:!ctags -R<CR>      Retag
+
+<C-]>               Jump to definition    <C-t>              Jump back from def
+:tag <name>         Jump to func/var      :tags              Show tag stack
+:ptag <name>        Open preview win      :pclose            Close preview win
+<C-w-]>             Jump to def, new win  :pop               Jump back from def
 ----------------------------------------  -----------------------------------}}}
 
 {{{ -- History & Searching -------------  --------------------------------------
