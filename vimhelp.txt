@@ -186,6 +186,15 @@ ctags -R            Full index            ctags -R *.py      Index python files
 <C-w-]>             Jump to def, new win  :pop               Jump back from def
 ----------------------------------------  -----------------------------------}}}
 
+{{{ -- Cscope --------------------------  --------------------------------------
+cscope -Rbkq             Create db        :cscope add cscope.out   Add db to vim
+
+:cs f c <symbol>         Find calls       :cs f s <symbol>     Find any sym
+:cs f d <symbol>         Find defs        :cs f g <symbol>     Find global defs
+:cs f e <pattern>        Find pattern     :cs f t <text>       Find text string
+:cs f v <variable>       Find var refs
+----------------------------------------  -----------------------------------}}}
+
 {{{ -- History & Searching -------------  --------------------------------------
 /        Search forward                   *       Search next word under cursor
 ?        Search backward                  #       Search prev word under cursor
