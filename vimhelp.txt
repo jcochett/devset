@@ -143,8 +143,12 @@ m[char]    Mark point as [char]           '[char]   Return to point [char]
 )          Next sentence                  (         Prev sentence
 }          Next paragraph                 {         Prev paragraph
 gj         Move down 1 actual line        gk        Move up 1 actual line
-<C-u>      Page up                        <C-d>     Page down
-'^         Return to last insert point    z.        Focus center at cursor
+<C-b>      Page up                        <C-f>     Page down
+<C-u>      Half Page up                   <C-d>     Half Page down
+'^         Return to last insert point    zz        Focus center at cursor
+zt         Focus top at cursor            zb        Focus bottom at cursor
+H          Move cursor high               L         Move cursor low
+M          Move cursor middle             e         Move cursor end of word
 ----------------------------------------  -----------------------------------}}}
 
 {{{ -- Jumps and Marks -----------------  --------------------------------------
@@ -211,10 +215,11 @@ V           Visual mode line selection
 ----------------------------------------  -----------------------------------}}}
 
 {{{ -- Programming ---------------------  --------------------------------------
-ga             Print ascii value          gd       Jump to definition (local)
-K              Open manpage               <C-t>    List tabs from previous jumps
-:sh            Drop to shell              :.!cmd   Dump command output
-<C-r>=4*5      Insert mode math           :!expr   8 \* 8  Math
+:term        Open terminal                ga       Print ascii value
+gd           Jump to def (local)          gD       Jump to def (global)
+K            Open manpage                 <C-t>    List tabs from previous jumps
+:sh          Drop to shell                :.!cmd   Dump command output
+<C-r>=4*5    Insert mode math             :!expr   8 \* 8  Math
 
 vim -u NONE [file]     Ignores .vimrc (allows tab usage)
 vim -b [file]          Open w/o adding newline at eof
