@@ -221,7 +221,7 @@ set tags=./tags,tags
 " Custom comands
 " -------------------------------------------------------------------------
 " Save session and exit all
-command! XX mks! | xa
+command! xs mks! | xa
 
 
 " -------------------------------------------------------------------------
