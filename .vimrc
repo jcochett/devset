@@ -241,7 +241,7 @@ nmap <F3> :call ToggleNumberColumn()<CR>
 " F4: Turn on/off syntax highlighting
 map <F4> :if exists("g:syntax_on") <Bar> syntax off<Bar> else<Bar> syntax enable<Bar> endif<CR>
 " Shift F4: Turn on python syntax
-map <s-F4> :set filetype=python
+map <s-F4> :set filetype=python<CR>
 
 
 " F5: Run Python
