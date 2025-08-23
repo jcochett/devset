@@ -40,7 +40,6 @@ autocmd InsertLeave * set cursorcolumn!  " Normal mode removes vertical highligh
 " -------------------------------------------------------------------------
 set hlsearch                   " Highlight search results
 set smartcase                  " Better searching
-set nu                         " Line numbering
 " Spelling highlight
 hi SpellBad ctermfg=white ctermbg=lightmagenta guifg=white guibg=green
 " Allow c-x c-k autocomplete to dictionary
@@ -51,6 +50,8 @@ set dictionary+=/usr/share/dict/words
 " Tabs and Buffers
 " -------------------------------------------------------------------------
 set hidden    " Allows switching buffers w/o saving
+let g:lasttab = 1                                " Global var lasttab to 1
+autocmd TabLeave * let g:lasttab = tabpagenr()   " Saves the last tab number
 " -------------------------------------------------------------------------
 
 " Status line
@@ -117,7 +118,7 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 map <leader>c :call CommentToggle()<CR>                   " Toggle comments
 map <leader>f za                                          " Toggle folding
-map <leader>g gt                                          " Previous tab
+map <Leader>g :exe "tabn " . g:lasttab<CR>                " Previous tab
 map <leader>h :call ToggleFile("~/.vim/vimhelp.txt")<CR>  " Space Help Menu
 map <leader>i '.                                          " Return to last insert
 map <leader>j <C-]>                                       " Ctag jump to definition
@@ -160,21 +161,6 @@ function! ToggleFile(filename)
     execute bufnr . 'bd'
   else
     execute 'vsp' fnameescape(a:filename)
-    execute 'set nonu nornu foldcolumn=0'
-  endif
-endfunction
-
-
-" -------------------------------------------------------------------------
-" Space H(elp) Help Menu
-" -------------------------------------------------------------------------
-function! ToggleMem(filename)
-  let bufnr = bufnr(a:filename)
-
-  if bufnr > 0 && buflisted(bufnr)
-    execute bufnr . 'bd'
-  else
-    execute 'leftabove 20vsp' fnameescape(a:filename)
     execute 'set nonu nornu foldcolumn=0'
   endif
 endfunction
