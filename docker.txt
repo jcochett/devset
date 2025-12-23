@@ -1,0 +1,51 @@
+
+# ------------------------------------------------------------------------
+# Docker Setup
+# ------------------------------------------------------------------------
+## Get an image
+docker pull <IMAGE NAME>
+
+## Tag a docker image
+docker tag <IMAGE NAME> <TAG NAME>
+
+
+# ------------------------------------------------------------------------
+# Docker Use
+# ------------------------------------------------------------------------
+
+## Image list
+docker images
+docker image ls <IMAGE NAME>
+
+## Linux Docker Execution (cd to the correct directory)
+docker run --volume "`pwd`:`pwd`" --workdir `pwd` -it --rm <IMAGE NAME>
+
+## Run the docker image with privileges
+docker run --privileged --rm <IMAGE NAME>
+
+## Windows Docker Execution (cd to the correct directory)
+docker run --volume "${pwd}:C:\app\<REPO NAME>" --workdir C:\app\<REPO NAME> -it --rm <IMAGE NAME>
+
+
+# ------------------------------------------------------------------------
+# Docker Building
+# ------------------------------------------------------------------------
+
+# Rebuild the docker image
+# Dockerfile should be in the same directory
+docker build -t <MY_IMAGE NAME> .
+
+# Save this docker image
+# docker save -o <MY_IMAGE NAME>.tar.gz <MY_IMAGE NAME>
+
+
+
+
+
+# ------------------------------------------------------------------------
+# Docker Cleanup
+# ------------------------------------------------------------------------
+
+## Remove a image or tag
+docker rmi <DOCKER/TAG NAME>
+
