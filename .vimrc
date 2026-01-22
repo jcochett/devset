@@ -116,6 +116,7 @@ augroup END
 " Leader key: <SPACE>
 nnoremap <SPACE> <Nop>
 let mapleader=" "
+nnoremap <leader>a :VAI<CR>                               " Vim AI via ollama
 map <leader>c :call CommentToggle()<CR>                   " Toggle comments
 map <leader>f za                                          " Toggle folding
 map <Leader>g :exe "tabn " . g:lasttab<CR>                " Previous tab
@@ -124,16 +125,18 @@ map <leader>i '.                                          " Return to last inser
 map <leader>j <C-]>                                       " Ctag jump to definition
 map <leader>k <C-t>                                       " Ctag return from definition
 map <leader>m :call ToggleMem("~/.vim/vim-mem.txt")<CR>   " Vim memory
+nnoremap <leader>n <C-^>                                  " Toggle buffer
 map <leader>o :tabe
 map <leader>s ]s                                          " Next spelling error
 map <leader>S :set spell!<CR>                             " Spelling on/off
 map <leader>t g<TAB>                                      " Toggle tag
-map <leader>z 1z=<CR>                                     " Spell correct
-nnoremap <leader>n <C-^>                                  " Toggle buffer
 nnoremap <leader>w <C-w><C-w>                             " Cycle window splits
+map <leader>x :call ToggleFile("~/.vim/vim_ai.txt")<CR>   " Space Help Menu
+map <leader>z 1z=<CR>                                     " Spell correct
 " -------------------------------------------------------------------------
 
 
+" -------------------------------------------------------------------------
 " Comment/Uncomment
 " -------------------------------------------------------------------------
 augroup commenting_blocks_of_code
@@ -208,6 +211,75 @@ set tags=./tags,tags
 " Save session and exit all
 command! XS mks! | xa
 cabbrev xs XS
+
+
+" -------------------------------------------------------------------------
+" AI ollama
+"   Uses <leader>a to query input in ollama llm and outputs
+"   to ~/.vim/vim_ai.txt. This file can be toggled on/off
+"   with <leader>x.
+" -------------------------------------------------------------------------
+set autoread
+
+command! -nargs=* VAI call s:vai(<f-args>)
+
+" Mapped above
+" nnoremap <leader>a :VAI<CR>
+
+function! s:vai(...)
+    if empty(a:000)
+        let l:prompt = input('vai> ')
+        if empty(l:prompt)
+            echo "No input given, aborting."
+            return
+        endif
+    else
+        let l:prompt = join(a:000, ' ')
+    endif
+
+    let l:file = expand('~/.vim/vim_ai.txt')
+
+    " Write header immediately
+    let l:header = [
+        \ '[' . strftime('%Y-%m-%d %H:%M:%S') . ']',
+        \ 'Query: ' . l:prompt,
+        \ '----------------------------------------'
+        \ ]
+    call writefile(l:header, l:file, 'a')
+    checktime
+
+    let l:cmd = 'ollama run qwen2.5-coder:7b ' . l:prompt
+
+    call job_start(l:cmd, {
+        \ 'pty': 1,
+        \ 'out_mode': 'nl',
+        \ 'out_cb': function('s:vai_on_out', [l:file]),
+        \ 'err_cb': function('s:vai_on_err'),
+        \ 'exit_cb': function('s:vai_on_exit', [l:file]),
+        \ })
+endfunction
+
+function! s:vai_on_out(file, job, msg)
+    if empty(a:msg)
+        return
+    endif
+    call writefile([a:msg], a:file, 'a')
+    checktime
+endfunction
+
+function! s:vai_on_err(job, msg)
+    " Intentionally ignore stderr
+endfunction
+
+function! s:vai_on_exit(file, job, status)
+    " Add spacing in the log
+    call writefile(['', ''], a:file, 'a')
+    checktime
+
+    " Notify the user in Vim
+    echo "VAI completed for: " . a:file
+endfunction
+
 
 
 " -------------------------------------------------------------------------
