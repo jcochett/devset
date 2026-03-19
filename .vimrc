@@ -215,9 +215,14 @@ cabbrev xs XS
 
 " -------------------------------------------------------------------------
 " AI ollama
-"   Uses <leader>a to query input in ollama llm and outputs
-"   to ~/.vim/vim_ai.txt. This file can be toggled on/off
-"   with <leader>x.
+"   Uses <leader>a to query input in ollama llm and outputs to
+"   ~/.vim/vim_ai.txt. This file can be toggled on/off with <leader>x.
+"
+"   Download ollama and install llm:
+"     curl -fsSL https://ollama.com/install.sh | sh   # Install ollama
+"     ollama --version                                # Validate ollama
+"     ollama run qwen2.5-coder:7b                     # Download llm
+"     ollama list                                     # Validate llm
 " -------------------------------------------------------------------------
 set autoread
 
@@ -279,7 +284,6 @@ function! s:vai_on_exit(file, job, status)
     " Notify the user in Vim
     echo "VAI completed for: " . a:file
 endfunction
-
 
 
 " -------------------------------------------------------------------------
