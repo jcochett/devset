@@ -32,7 +32,7 @@ FILES_VIMRC=(".vimrc")
 # Vim Help
 TARGET_DIR_VIMHELP="$VIM_DIR"
 SOURCE_DIR_VIMHELP="."
-FILES_VIMHELP=("vim-mem.txt" "vimhelp.txt")
+FILES_VIMHELP=("vimhint.txt" "vimhelp.txt")
 
 # File Checking Function
 check_files() {

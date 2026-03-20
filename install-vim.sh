@@ -3,7 +3,7 @@ mkdir -p ~/.vim/colors/ ~/.vim/compiler ~/.vim/plugin
 echo "Copying .vimrc"
 cp .vimrc      ~/.vimrc
 echo "Copying vimcmd.txt reference"
-cp vim-mem.txt ~/.vim/vim-mem.txt
+cp vimhint.txt ~/.vim/vimhint.txt
 echo "Copying vimhelp.txt for F2 help"
 cp vimhelp.txt ~/.vim/vimhelp.txt
 echo "Copying gruvbox to .vim/colors for colorscheme"

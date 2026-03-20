@@ -1,8 +1,66 @@
-GIT NOTES
+# -----------------------------------------------------------
+#
+# Git information
+#  - Commands
+#  - Initial setup
+#
+# -----------------------------------------------------------
 
-###############################################################################
+
+# -----------------------------------------------------------
+# Git Commands
+# -----------------------------------------------------------
+
+# New branching
+git checkout -b PROJECT-XX
+git push --set-upstream origin PROJECT-XX
+git push
+
+# Merge dev into branch
+git checkout development
+git pull
+git checkout your_branch
+git pull
+git merge
+
+# Revert a file
+
+# Revert branch
+git checkout .
+
+# Amend a git commit
+git commit --amend
+
+# Show changes from a branch you are on
+git diff theOtherBranch
+
+# Visuall see the summary of changes with --stat
+git log --stat
+
+# Show commit messages from a single branch named 'branchName'
+git log dev..branchName
+
+# Show commit summary from single branch
+git cherry -v dev branchName
+
+# Removed untracked files w/ force
+git clean -f
+
+# Show which untracked files would be removed
+git clean -n
+
+
+
+
+# -----------------------------------------------------------
+#
+# Git Setup Instructions
+#
+# -----------------------------------------------------------
+
+###########################################################
 # Store Username & Passwords
-###############################################################################
+###########################################################
 
 -------------------------------------------------------------------------------
 # Store username/password forever on this repo
@@ -28,9 +86,9 @@ git config --global user.name "jcoke"
 git config --global http.sslverify false
 
 
-###############################################################################
+###########################################################
 # Fancy Git Branch in BASH Prompt
-###############################################################################
+###########################################################
 
 -------------------------------------------------------------------------------
 # Paste at end of .bashrc file
@@ -57,9 +115,9 @@ export PS1="${CYAN}\u@\h${RESET} ${PERIWINKLE}\w${RESET} ${LIME_GREEN}\$(parse_g
 
 
 
-###############################################################################
+###########################################################
 # Git Branch in BASH Prompt
-###############################################################################
+###########################################################
 
 -------------------------------------------------------------------------------
 # Paste at end of .bashrc file
@@ -70,16 +128,16 @@ parse_git_branch() {
 }
 export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 
-###############################################################################
+###########################################################
 # Git Commits use Vim
-###############################################################################
+###########################################################
 
 git config --global core.editor "vim"
 
 
-###############################################################################
+###########################################################
 # Git .gitconfig
-###############################################################################
+###########################################################
 
 [alias]
     lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all

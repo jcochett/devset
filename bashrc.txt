@@ -1,3 +1,11 @@
+#
+# Contains resuable .bashrc settings
+#
+
+
+# ---------------------------------------------------------------------
+# Bash Prompt
+# ---------------------------------------------------------------------
 
 # Git branch
 parse_git_branch() {
@@ -27,7 +35,11 @@ RESET='\e[0m'
 # Green Prompt
 export PS1="\[[${LIME_GREEN}${DARK_GREY}\u@\h${RESET}] ${SUNNY}\w ${SEAGREEN}\$(parse_git_branch)${RESET}\]$ "
 
+
+# ---------------------------------------------------------------------
 # Aliases
+# ---------------------------------------------------------------------
+
 alias tmux="TERM=screen-256color-bce tmux"
 export TERM="xterm-256color"
 
@@ -37,6 +49,13 @@ alias l='ls -CF'
 
 alias vib="vim ~/.bashrc"
 alias vis="vim -S"
+
+alias ai="ollama run qwen2.5-coder:7b"
+alias aii="ollama run  qwen2.5-coder:32b"
+
+# Example of VM management
+alias startvm="/mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe startvm \"Debian12\" --type headless"
+alias stopvm="/mnt/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe controlvm \"Debian12\" poweroff"
 alias vb="ssh -X jason@192.168.56.101"
 
 #set -g default-terminal "screen-256color"

@@ -116,23 +116,25 @@ augroup END
 " Leader key: <SPACE>
 nnoremap <SPACE> <Nop>
 let mapleader=" "
-nnoremap <leader>a :VAI<CR>                               " Vim AI via ollama
-map <leader>c :call CommentToggle()<CR>                   " Toggle comments
-map <leader>f za                                          " Toggle folding
-map <Leader>g :exe "tabn " . g:lasttab<CR>                " Previous tab
-map <leader>h :call ToggleFile("~/.vim/vimhelp.txt")<CR>  " Space Help Menu
-map <leader>i '.                                          " Return to last insert
-map <leader>j <C-]>                                       " Ctag jump to definition
-map <leader>k <C-t>                                       " Ctag return from definition
-map <leader>m :call ToggleMem("~/.vim/vim-mem.txt")<CR>   " Vim memory
-nnoremap <leader>n <C-^>                                  " Toggle buffer
+
+" Vim AI via ollama
+nnoremap <leader>a :VAI<CR>
+map <leader>c :call CommentToggle()<CR>                        " Toggle comments
+map <leader>f za                                               " Toggle folding
+map <Leader>g :exe "tabn " . g:lasttab<CR>                     " Previous tab
+map <leader>h :call ToggleFile("~/.vim/vimhelp.txt")<CR>       " Space Help Menu
+map <leader>i '.                                               " Return to last insert
+map <leader>j <C-]>                                            " Ctag jump to definition
+map <leader>k <C-t>                                            " Ctag return from definition
+map <leader>m :call ToggleFile("~/.vim/vimhint.txt", 20)<CR>   " Vim memory
+nnoremap <leader>n <C-^>                                       " Toggle buffer
 map <leader>o :tabe
-map <leader>s ]s                                          " Next spelling error
-map <leader>S :set spell!<CR>                             " Spelling on/off
-map <leader>t g<TAB>                                      " Toggle tag
-nnoremap <leader>w <C-w><C-w>                             " Cycle window splits
-map <leader>x :call ToggleFile("~/.vim/vim_ai.txt")<CR>   " Space Help Menu
-map <leader>z 1z=<CR>                                     " Spell correct
+map <leader>s ]s                                               " Next spelling error
+map <leader>S :set spell!<CR>                                  " Spelling on/off
+map <leader>t g<TAB>                                           " Toggle tag
+nnoremap <leader>w <C-w><C-w>                                  " Cycle window splits
+map <leader>x :call ToggleFile("~/.vim/vim_ai.txt")<CR>        " Space Help Menu
+map <leader>z 1z=<CR>                                          " Spell correct
 " -------------------------------------------------------------------------
 
 
@@ -157,13 +159,23 @@ endfunction
 " -------------------------------------------------------------------------
 " Space H(elp) Help Menu
 " -------------------------------------------------------------------------
-function! ToggleFile(filename)
+" Togglefile takes a filename and an optional width in a new window
+"   If the width is provided, the file is opened on the left
+function! ToggleFile(filename, ...)
   let bufnr = bufnr(a:filename)
 
   if bufnr > 0 && buflisted(bufnr)
     execute bufnr . 'bd'
   else
-    execute 'vsp' fnameescape(a:filename)
+    " Check if optional parameter is passed and truthy
+    if a:0 > 0
+      " Open on the left with width passed in
+      execute 'topleft vertical ' . a:1 . 'split ' . fnameescape(a:filename)
+    else
+      " Default behavior
+      execute 'vsp ' . fnameescape(a:filename)
+    endif
+
     execute 'set nonu nornu foldcolumn=0'
   endif
 endfunction
