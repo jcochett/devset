@@ -20,7 +20,6 @@ Developer Setup notes and files
 
 ```
 .vimrc                   Vim resource configuration file
-vimhelp.txt              F2 or Space-H - Vim command help
 
 extras/                  Vim support files
 extras/gruvbox.vim       Color scheme
@@ -29,7 +28,8 @@ extras/chartab.vim       ASCII chart popup
 extras/supertab.tar.gz   Supertab plugin for autocomplete
 
 docs/                    Documentation
-
+vimhelp.txt              F2 or Space-H - Vim command help
+vimhint.txt              Left-side hints for vim popup
 
 ```
 
