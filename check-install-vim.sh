@@ -3,6 +3,7 @@ echo "DevSet Check ---------------- "
 
 VIM_DIR="$HOME/.vim"
 EXTRAS_DIR="./extras"
+DOCS_DIR="./docs"
 
 # Color Scheme
 TARGET_DIR_COLORS="$VIM_DIR/colors"
@@ -31,7 +32,7 @@ FILES_VIMRC=(".vimrc")
 
 # Vim Help
 TARGET_DIR_VIMHELP="$VIM_DIR"
-SOURCE_DIR_VIMHELP="."
+SOURCE_DIR_VIMHELP="$DOCS_DIR"
 FILES_VIMHELP=("vimhint.txt" "vimhelp.txt")
 
 # File Checking Function
