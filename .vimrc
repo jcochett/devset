@@ -208,9 +208,13 @@ set omnifunc=syntaxcomplete#Complete
 " Enable packloadall for pack plugins to support SuperTab
 packloadall
 
-" Filename completion single Control-f
+" Filename completion single Control-f (insert mode)
 inoremap <C-f> <C-x><C-f>
 inoremap <C-o> <C-x><C-o>
+
+" Ctags completion Control-d (insert mode)
+inoremap <C-d> <C-x><C-]>
+
 
 " Search current dir (.vimrc)
 set tags=./tags,tags
